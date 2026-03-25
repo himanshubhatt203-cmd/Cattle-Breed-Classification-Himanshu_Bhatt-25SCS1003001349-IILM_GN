@@ -6,6 +6,7 @@ from datetime import datetime
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk
+from pathlib import Path
 
 # This import must point to where your model class is defined.
 # If 'src.model' is not a module, you will need to adjust this.
@@ -19,8 +20,9 @@ from torchvision import transforms
 
 # === EDIT THESE PATHS ===
 # The model and label file paths MUST be updated to your actual locations.
-MODEL_FILE = r"C:\Users\himan\Downloads\Cattle_Breed_Classification\models\best_model.pth"
-LABELS_FILE = r"C:\Users\himan\Downloads\Cattle_Breed_Classification\models\labels.json"
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_FILE = BASE_DIR / "models" / "best_model.pth"
+LABELS_FILE = BASE_DIR / "models" / "labels.json"
 MODEL_CLASS_PATH = "src.model"
 MODEL_CLASS_NAME = "CattleBreedClassifier"
 NUM_CLASSES = 15
