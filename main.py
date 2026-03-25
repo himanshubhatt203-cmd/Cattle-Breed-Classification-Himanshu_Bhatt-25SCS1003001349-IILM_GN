@@ -8,11 +8,15 @@ from src.dataset import get_dataloaders
 from src.model import get_model
 from src.train import train_model
 from src.evaluate import evaluate
+from pathlib import Path
 
 # Set your paths
-train_dir = r"C:\Users\himan\Downloads\AI Model\Splitted_Data\train"
-val_dir   = r"C:\Users\himan\Downloads\AI Model\Splitted_Data\val"
-test_dir  = r"C:\Users\himan\Downloads\AI Model\Splitted_Data\test"
+BASE_DIR = Path(__file__).resolve().parent
+DATASET_DIR = BASE_DIR / "dataset"
+
+train_dir = DATASET_DIR / "train"
+val_dir = DATASET_DIR / "val"
+test_dir = DATASET_DIR / "test"
 batch_size = 16
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
